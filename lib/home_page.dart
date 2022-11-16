@@ -1,5 +1,7 @@
 import 'package:facebook_clone/config/palette.dart';
-import 'package:facebook_clone/widgets/Circle_buttons.dart';
+import 'package:facebook_clone/data/data.dart';
+import 'package:facebook_clone/widgets/widgets.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -28,14 +30,23 @@ class HomePage extends StatelessWidget {
             actions: [
               MyButtons(
                   iconSize: 30,
-                  icon: Icons.search,
-                  color: Colors.black54,
+                  icon: Icons.search_rounded,
+                  color: Colors.black,
                   onpressed: () {}),
               MyButtons(iconSize: 30,
-                  color: Colors.black54,
+                  color: Colors.black,
                   icon: MdiIcons.facebookMessenger,
                   onpressed: (){})
             ],
+          ),
+          SliverToBoxAdapter(
+            child: PostContainer(currentUser: currentUser),
+          ),
+          SliverPadding(
+            padding:  EdgeInsets.only(top: 10,bottom: 5),
+            sliver: SliverToBoxAdapter(
+              child: MyRooms(onlineUsers: onlineUsers),
+            ),
           )
         ],
       ),
