@@ -47,6 +47,15 @@ class HomePage extends StatelessWidget {
             sliver: SliverToBoxAdapter(
               child: MyRooms(onlineUsers: onlineUsers),
             ),
+          ),
+          SliverPadding(
+            padding:  EdgeInsets.only(top: 10,bottom: 5),
+            sliver: SliverToBoxAdapter(
+              child: Stories(
+                currentUser: currentUser,
+                stories: stories,
+              ),
+            ),
           )
         ],
       ),
