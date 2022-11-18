@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import 'models/post_model.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -56,6 +58,14 @@ class HomePage extends StatelessWidget {
                 stories: stories,
               ),
             ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context,index){
+            final Post post = posts[index];
+            return CreatePostContainer(post: post);
+          },
+          childCount: posts.length
+          ),
           )
         ],
       ),
